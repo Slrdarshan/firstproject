@@ -5,15 +5,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class CrtOrganizationTest {
 
 	@Test
 	public void  crtOrgTest() throws InterruptedException {
+		
 		System.out.println("creating a new organization");
+		WebDriverManager.chromedriver().setup();
 		String browser= System.getProperty("BROWSER");
 		String url=System.getProperty("URL");
 		
-		WebDriver driver=null;
+		WebDriver driver = null;
 		if(browser.equalsIgnoreCase("firefox")) {
 			driver=new FirefoxDriver();
 		} else if(browser.equalsIgnoreCase("chrome")) {
